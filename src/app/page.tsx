@@ -3,56 +3,17 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 
-import { Avatar } from 'antd';
-import Link from 'antd/es/typography/Link';
+import { Avatar } from "antd";
 
-import Footer from '@/components/Footer';
-import GoogleMap from '@/components/map/GoogleMap';
-import MenuAntd from '@/components/Menu';
-import ProductSlider from '@/components/products/ProductSlider';
-import ProjectSlider from '@/components/project/ProjectSlider';
-import ReviewSlider from '@/components/reviews/ReviewSlider';
-import SliderSlick from '@/components/Slider';
+import ProductSlider from "@/components/products/ProductSlider";
+import ProjectSlider from "@/components/project/ProjectSlider";
+import ReviewSlider from "@/components/reviews/ReviewSlider";
+import SliderSlick from "@/components/Slider";
 
 export default function Home() {
   return (
     <>
-      <div className="bg-[#000080]">
-        <div className=" flex justify-between max-w-[1200px] mx-auto p-4">
-          <div className="flex gap-2">
-            <Link className="border-r border-gray-500 last:border-r-0 pr-2 !text-white">
-              Trang chủ
-            </Link>
-            <Link className="border-r border-gray-500 last:border-r-0 pr-2 !text-white">
-              Giới thiệu
-            </Link>
-            <Link className="border-r border-gray-500 last:border-r-0 pr-2 !text-white">
-              Tư vấn
-            </Link>
-            <Link className="border-r border-gray-500 last:border-r-0 pr-2 !text-white">
-              Liên hệ
-            </Link>
-          </div>
-          <div className=" flex items-center gap-2">
-            <b className="!text-white">Hotline:</b>
-            <Link className="!text-white" href="tel:+84915441511">
-              0915.441.511 ( Mr.Duy)
-            </Link>
-            <p className="text-white">-</p>
-            <Link className="!text-white" href="tel:+84912851511">
-              0912. 851.511 (Ms.Thư)
-            </Link>
-          </div>
-        </div>
-      </div>
-      {/* <div className="flex justify-between max-w-[1200px] mx-auto">
-        <img
-          src="https://bepcongnghiepinox.com.vn/upload/photo/bep-cong-nghiep-2061.png"
-          className="h-20"
-        />
-      </div> */}
       <div>
-        <MenuAntd />
         <SliderSlick />
         <div className="max-w-[1200px] mx-auto py-0">
           <div className="py-10">
@@ -265,7 +226,7 @@ export default function Home() {
                     className="shadow mb-4 min-h-0 appearance-none border rounded h-64 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     placeholder="Vui lòng nhập nội dung"
                     name="message"
-                    style={{ height: '121px' }}
+                    style={{ height: "121px" }}
                   ></textarea>
 
                   <div className="flex justify-center">
@@ -295,8 +256,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Footer />
-      <GoogleMap />
     </>
   );
 }

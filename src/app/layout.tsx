@@ -5,6 +5,9 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import GoogleMap from "@/components/map/GoogleMap";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AntdRegistry>{children}</AntdRegistry>
+        <AntdRegistry>
+          <Header />
+          {children}
+          <Footer />
+          <GoogleMap />
+        </AntdRegistry>
       </body>
     </html>
   );
