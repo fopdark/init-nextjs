@@ -225,9 +225,9 @@ const Footer = () => {
           </div>
           <div className="mt-6 flex flex-col justify-between text-white sm:flex-row md:mt-0 ">
             <div className="mt-6 flex flex-col gap-4 sm:mt-0">
-              <p className="text-deutziawhite font-inter text-[18px] font-bold capitalize ">
+              <a href="/policy" className="text-deutziawhite font-inter text-[18px] font-bold capitalize ">
                 Chính sách - Quy định
-              </p>
+              </a>
               <div className="flex gap-4 sm:flex-col">
                 <a target="_blank" href="#">
                   - Thông tin chủ doanh nghiệp
