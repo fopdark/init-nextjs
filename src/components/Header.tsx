@@ -5,7 +5,7 @@ import MenuAntd from "./Menu";
 function Header(props: any) {
   console.log("props", props)
   return (
-    <div>
+    <>
       <div className="bg-[#000080]">
         <div className=" flex justify-between max-w-[1200px] mx-auto p-4">
           <div className="hidden lg:flex gap-2">
@@ -35,7 +35,7 @@ function Header(props: any) {
         </div>
       </div>
       <MenuAntd />
-    </div>
+    </>
   );
 }
 

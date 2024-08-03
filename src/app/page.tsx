@@ -217,7 +217,7 @@ export default async function Home({
             </div>
             <ProjectSlider />
           </div>
-          <div className="min-h-[600px] bg-[url('/assets/img/construction/bg-get-info.jpg')] flex flex-col justify-center rounded-2xl bg-cover">
+          <div className="my-10 min-h-[600px] bg-[url('/assets/img/construction/bg-get-info.jpg')] flex flex-col justify-center rounded-2xl bg-cover">
             <div className="relative py-3 sm:max-w-xl sm:mx-auto">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
               <div className="text-white relative px-2 py-5 bg-indigo-400 shadow-lg sm:rounded-3xl sm:p-5">
@@ -263,7 +263,7 @@ export default async function Home({
           </div>
 
           {/* <div className="grid grid-cols-2"> */}
-          <div className="p-5 ">
+          <div className="px-5 py-10">
             <div className="flex justify-center">
               <h2 className="text-3xl sm:text-4xl text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
                 Đánh Giá Khách Hàng

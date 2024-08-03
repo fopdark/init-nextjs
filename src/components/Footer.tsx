@@ -1,67 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
-
-// MST:0310965199
-
-// Đia Chỉ: 68 Đường Số 19, Phường 5, Quận Gò Vấp, Hồ Chí  Minh
-
-// Điện Thoại: (08).6660.8662   Fax: (08).3895.3886
-
-// Email: sale@diepkienhuy.com
-
-// Website: www.diepkienhuy.com
 const Footer = () => {
-  // const t = useTranslations();
   return (
-    // <footer className=" bg-[#000080] p-10 text-white">
-    //   <div className="max-w-[1200px] mx-auto">
-    //     <h1 className="text-3xl font-bold">CÔNG TY TNHH TM XD DIỆP KIẾN HUY</h1>
-    //     <div className="grid grid-cols-3 gap-2">
-    //       <div>
-    //         <h4 className="font-bold text-2xl py-2">Liên hệ</h4>
-    //         <div className="flex flex-col gap-1">
-    //           <p>
-    //             <b className="whitespace-nowrap">MST: </b> 0310965199
-    //           </p>
-    //           <p>
-    //             <b className="whitespace-nowrap">Địa chỉ: </b> 68 Đường Số 19,
-    //             Phường 5, Quận Gò Vấp, Hồ Chí Minh
-    //           </p>
-    //           <p>
-    //             <b className="whitespace-nowrap">Điện Thoại: </b>
-    //             <Link href="tel:+84866668662">: (08).6660.8662</Link>
-    //           </p>
-    //           <p>
-    //             <b className="whitespace-nowrap">Fax: </b>
-    //             <Link href="tel:+84866668662">: (08).3895.3886</Link>
-    //           </p>
-    //           <p>
-    //             <b className="whitespace-nowrap">Email: </b>
-    //             <Link href="tel:+84866668662">: sale@diepkienhuy.com</Link>
-    //           </p>
-    //           <p>
-    //             <b className="whitespace-nowrap">Website: </b>
-    //             <Link href="tel:+84866668662">: www.diepkienhuy.com</Link>
-    //           </p>
-    //         </div>
-    //       </div>
-    //       <div>
-    //         <h4 className="font-bold text-2xl py-2">Thông tin báo giá</h4>
-    //         <div className="flex flex-col gap-1">
-    //           <p>Hướng dẫn thi công sơn epoxy từ A-Z</p>
-    //           <p>Báo giá + Thi công sơn epoxy</p>
-    //           <p>Báo giá + Thi công đánh bóng bê tông</p>
-    //           <p>Báo giá + Thi công sơn sàn Polyurethane kho lạnh</p>
-    //         </div>
-    //       </div>
-    //       <div>
-    //         <h4 className="font-bold text-2xl py-2">Nhận ngay ưu đãi 5%</h4>
-    //         <div className="flex flex-col gap-1">
-    //           <p>Nhận ngay ưu đãi 5%</p>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </footer>
     <div className="bg-[#000080] pt-9">
       <div className="mx-auto w-full max-w-[1166px] px-4 xl:px-0">
         <div className="grid grid-cols-2 sm:grid-cols-3 justify-between px-5 gap-5">
@@ -228,7 +166,7 @@ const Footer = () => {
               <a href="/policy" className="text-deutziawhite font-inter text-[18px] font-bold capitalize ">
                 Chính sách - Quy định
               </a>
-              <div className="flex gap-4 sm:flex-col">
+              <div className="flex flex-col gap-4">
                 <a target="_blank" href="#">
                   - Thông tin chủ doanh nghiệp
                 </a>
