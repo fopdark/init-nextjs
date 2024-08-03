@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Slider from 'react-slick';
+import React from "react";
+import Slider from "react-slick";
 
-function SliderSlick() {
+function SliderSlick(props: any) {
+  const { data } = props;
   const settings = {
     dots: false,
     infinite: true,
@@ -11,27 +12,19 @@ function SliderSlick() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
   return (
     <div className="w-full mx-auto">
       <Slider {...settings}>
-        <div className="">
-          <img
-            src="/assets/img/slide/slider-1.jpg"
-            className="w-full h-[50vh]"
-          />
-        </div>
-        <div>
-          <img
-            src="/assets/img/slide/slider-2.jpg"
-            className="w-full h-[50vh]"
-          />
-        </div>
-        <div>
-          <img
-            src="/assets/img/slide/slider-3.jpg"
-            className="w-full h-[50vh]"
-          />
-        </div>
+        {data?.length > 0 &&
+          data.map((slide: any, index: number) => (
+            <div key={slide?._id} className="">
+              <img
+                src={slide?.image_url}
+                className="w-full h-[30vh] lg:h-[50vh]"
+              />
+            </div>
+          ))}
       </Slider>
     </div>
   );

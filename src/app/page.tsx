@@ -3,18 +3,37 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 
+
 import { Avatar } from "antd";
 
 import ProductSlider from "@/components/products/ProductSlider";
 import ProjectSlider from "@/components/project/ProjectSlider";
 import ReviewSlider from "@/components/reviews/ReviewSlider";
 import SliderSlick from "@/components/Slider";
+import { getSliderList } from "@/services/slider";
 
-export default function Home() {
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   let res = {}
+//   try {
+//     const res = await getSliderList({});
+   
+//   } catch (error) {
+//     console.log("error", error);
+//   }
+//    return { props: { res } };
+// };
+
+
+export default async function Home({
+  res,
+}: any) {
+
+  const slides = await getSliderList({});
+  console.log('res', slides)
   return (
     <>
       <div>
-        <SliderSlick />
+        <SliderSlick data={slides}/>
         <div className="max-w-[1200px] mx-auto py-0">
           <div className="py-10">
             <div className="flex justify-center ">
@@ -24,7 +43,7 @@ export default function Home() {
             </div>
             <div className="bg-white bg-gradient-to-r from-[#000080] to-indigo-300 h-full py-6 sm:py-8 lg:py-12 rounded-2xl">
               <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
                   <a
                     href="#"
                     className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
@@ -126,12 +145,12 @@ export default function Home() {
           </div>
           <div className="max-w-[1200px] mx-auto py-10">
             <div className="flex justify-center">
-              <h2 className="text-4xl text-center text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
+              <h2 className="text-3xl lg:text-4xl text-center text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
                 Vì Sao Nên Chọn Chúng Tôi
               </h2>
             </div>
             {/* <News /> */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-4">
               <div>
                 <div className=" shadow-md bg-gradient-to-tr from-[#000080] to-green-300 rounded-lg p-10 h-full">
                   <p className="text-white">
