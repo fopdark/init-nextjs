@@ -58,7 +58,7 @@ const MenuAntd: React.FC = () => {
       <div className="bg-white sticky top-0 z-10 border border-gray-300 p-4 ">
         <div className="max-w-[1200px] mx-auto flex gap-10">
           <img src="/assets/img/logo/logo.png" className="h-[46px]" />
-          <div className="flex-1  justify-center hidden lg:flex">
+          <div className="flex-1 justify-center hidden lg:flex">
             <Menu
               className="bg-transparent w-full font-bold"
               onClick={onClick}
@@ -68,8 +68,13 @@ const MenuAntd: React.FC = () => {
               // theme="dark"
             />
           </div>
-          <div className="lg:hide flex-1 flex justify-end">
-            <MenuOutlined onClick={() => setOpenMenu(true)} />
+          <div className="flex lg:hidden flex-1 justify-end">
+            <MenuOutlined
+              onClick={() => setOpenMenu(true)}
+              style={{
+                color: "black",
+              }}
+            />
             <Drawer
               title={
                 <img src="/assets/img/logo/logo.png" className="h-[46px]" />
@@ -80,7 +85,7 @@ const MenuAntd: React.FC = () => {
               open={openMenu}
             >
               <Menu
-               mode="inline"
+                mode="inline"
                 className="bg-transparent w-full font-bold"
                 onClick={onClick}
                 selectedKeys={[current]}

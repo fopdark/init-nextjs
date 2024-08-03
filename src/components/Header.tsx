@@ -8,7 +8,7 @@ function Header(props: any) {
     <div>
       <div className="bg-[#000080]">
         <div className=" flex justify-between max-w-[1200px] mx-auto p-4">
-          <div className="flex gap-2">
+          <div className="hidden lg:flex gap-2">
             <Link className="border-r border-gray-500 last:border-r-0 pr-2 !text-white">
               Trang chủ
             </Link>

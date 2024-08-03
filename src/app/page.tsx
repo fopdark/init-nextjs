@@ -11,6 +11,7 @@ import ProjectSlider from "@/components/project/ProjectSlider";
 import ReviewSlider from "@/components/reviews/ReviewSlider";
 import SliderSlick from "@/components/Slider";
 import { getSliderList } from "@/services/slider";
+import { getProducts } from "@/services/product";
 
 // export const getServerSideProps: GetServerSideProps = async () => {
 //   let res = {}
@@ -29,7 +30,8 @@ export default async function Home({
 }: any) {
 
   const slides = await getSliderList({});
-  console.log('res', slides)
+  const products = await getProducts();
+
   return (
     <>
       <div>
@@ -37,13 +39,13 @@ export default async function Home({
         <div className="max-w-[1200px] mx-auto py-0">
           <div className="py-10">
             <div className="flex justify-center ">
-              <h2 className="text-4xl text-center text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
+              <h2 className="text-4xl sm:text-4xl text-center text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
                 Dịch Vụ Nổi Bật
               </h2>
             </div>
             <div className="bg-white bg-gradient-to-r from-[#000080] to-indigo-300 h-full py-6 sm:py-8 lg:py-12 rounded-2xl">
               <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
                   <a
                     href="#"
                     className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
@@ -143,14 +145,14 @@ export default async function Home({
               </div>
             </div>
           </div>
-          <div className="max-w-[1200px] mx-auto py-10">
+          <div className="max-w-[1200px] mx-auto py-10 px-8">
             <div className="flex justify-center">
-              <h2 className="text-3xl lg:text-4xl text-center text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
+              <h2 className="text-3xl sm:text-4xl text-center text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
                 Vì Sao Nên Chọn Chúng Tôi
               </h2>
             </div>
             {/* <News /> */}
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-4">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-4 ">
               <div>
                 <div className=" shadow-md bg-gradient-to-tr from-[#000080] to-green-300 rounded-lg p-10 h-full">
                   <p className="text-white">
@@ -171,7 +173,7 @@ export default async function Home({
                     src="/assets/img/construction/process.png"
                     size={60}
                   />
-                  <p className="font-bold text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
+                  <p className="font-bold text-xl sm:text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
                     Quy Trình Chuyên Nghiệp
                   </p>
                 </div>
@@ -180,19 +182,19 @@ export default async function Home({
                     src="/assets/img/construction/teamwork.png"
                     size={60}
                   />
-                  <p className="font-bold text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
+                  <p className="font-bold text-xl sm:text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
                     Đội Ngũ Kỹ Thuật Giỏi
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
                   <Avatar src="/assets/img/construction/award.png" size={60} />
-                  <p className="font-bold text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
+                  <p className="font-bold text-xl sm:text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
                     Quy Trình Đạt Chuẩn
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
                   <Avatar src="/assets/img/construction/star.png" size={60} />
-                  <p className="font-bold text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
+                  <p className="font-bold text-xl sm:text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
                     Hậu Mãi Tốt
                   </p>
                 </div>
@@ -201,15 +203,15 @@ export default async function Home({
           </div>
           <div className="py-10">
             <div className="flex justify-center">
-              <h2 className="text-4xl text-center text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
+              <h2 className="text-3xl sm:text-4xl text-center text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
                 Sản Phẩm Nổi Bật
               </h2>
             </div>
-            <ProductSlider isPrice={false} />
+            <ProductSlider products={products} />
           </div>
           <div className="py-10">
             <div className="flex justify-center">
-              <h2 className="text-4xl text-center text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
+              <h2 className="text-3xl sm:text-4xl text-center text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
                 Công Trình Đã Thi Công
               </h2>
             </div>
@@ -263,11 +265,11 @@ export default async function Home({
           {/* <div className="grid grid-cols-2"> */}
           <div className="p-5 ">
             <div className="flex justify-center">
-              <h2 className="text-4xl text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
+              <h2 className="text-3xl sm:text-4xl text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
                 Đánh Giá Khách Hàng
               </h2>
             </div>
-            <p className="text-center">
+            <p className="text-center text-black">
               Cùng với đội ngũ nhân viên giàu kinh nghiệm và nhiệt huyết luôn
               nhận được sự ủng hộ thường xuyên
             </p>

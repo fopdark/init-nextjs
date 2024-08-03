@@ -64,8 +64,8 @@ const Footer = () => {
     // </footer>
     <div className="bg-[#000080] pt-9">
       <div className="mx-auto w-full max-w-[1166px] px-4 xl:px-0">
-        <div className="grid grid-cols-3 justify-between px-5 gap-5">
-          <div className="">
+        <div className="grid grid-cols-2 sm:grid-cols-3 justify-between px-5 gap-5">
+          <div className="col-span-2 sm:col-span-1">
             <img src="/assets/img/logo/logo.png" width={200} />
             <p className="mt-[18px] text-[15px] font-normal text-white/[80%]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
@@ -140,7 +140,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div className="">
+          <div className="col-span-2 sm:col-span-1">
             <div className="mt-[0px] flex">
               <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[75%]">
                 <svg
@@ -223,7 +223,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="mt-6 flex flex-col justify-between text-white sm:flex-row md:mt-0 ">
+          <div className="col-span-2 sm:col-span-1 mt-6 flex flex-col justify-between text-white sm:flex-row md:mt-0 ">
             <div className="mt-6 flex flex-col gap-4 sm:mt-0">
               <a href="/policy" className="text-deutziawhite font-inter text-[18px] font-bold capitalize ">
                 Chính sách - Quy định
