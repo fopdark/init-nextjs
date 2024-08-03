@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 
 function SliderSlick(props: any) {
@@ -12,6 +12,10 @@ function SliderSlick(props: any) {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
+  useEffect(() => {
+    console.log('call api data', data)
+  },[data])
 
   return (
     <div className="w-full mx-auto">

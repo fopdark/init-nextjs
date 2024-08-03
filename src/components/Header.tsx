@@ -3,6 +3,7 @@ import Link from "antd/es/typography/Link";
 import MenuAntd from "./Menu";
 
 function Header(props: any) {
+  console.log("props", props)
   return (
     <div>
       <div className="bg-[#000080]">
