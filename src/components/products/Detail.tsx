@@ -67,9 +67,10 @@ function ProductDetail(props: { data: any }) {
                 <div className="flex items-center mt-2 gap-2">
                   {data?.color.map((color: string, index: number) => (
                     <button
-                      className={`w-6 h-6 rounded-full` }
+                      key={index}
+                      className={`w-6 h-6 rounded-full`}
                       style={{
-                        background: color
+                        background: color,
                       }}
                     ></button>
                   ))}
