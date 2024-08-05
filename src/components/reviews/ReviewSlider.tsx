@@ -49,7 +49,7 @@ function ReviewSlider() {
                   // size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
                 />
               </div>
-              <div className=" flex flex-col justify-center">
+              <div className=" flex flex-col justify-center text-white">
                 <h3 className="font-bold text-xl mb-2 ">
                   Chị Duyên {index} - Chủ nhà hàng sông quê
                 </h3>

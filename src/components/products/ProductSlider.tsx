@@ -3,6 +3,8 @@
 import React from "react";
 import Slider from "react-slick";
 import ProductCard from "./ProductCard";
+import Link from "next/link";
+import { DOMAIN_URL } from "@/constants/Common";
 
 const settings = {
   dots: false,
@@ -44,11 +46,13 @@ function ProductSlider({ products }: any) {
       <Slider {...settings}>
         {products?.map((product: any) => (
           <div className="" key={product?._id}>
-            <ProductCard
-              img={product?.image?.[0]}
-              name={product?.title}
-              isPrice={false}
-            />
+            <Link href={`${DOMAIN_URL}/products/${product?.slug}`}>
+              <ProductCard
+                img={product?.image?.[0]}
+                name={product?.title}
+                isPrice={false}
+              />
+            </Link>
           </div>
         ))}
       </Slider>
