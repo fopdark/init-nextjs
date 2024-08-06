@@ -1,6 +1,6 @@
 import React from "react";
 export function generateStaticParams() {
-  return [{ projectID: "1" }];
+  return [{ slug: "1" }];
 }
 
 function ProjectPage(props: any) {

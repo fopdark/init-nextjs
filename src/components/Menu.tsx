@@ -5,42 +5,17 @@ import { ConfigProvider, Drawer, Menu } from "antd";
 import React, { useState } from "react";
 import { MenuOutlined } from "@ant-design/icons";
 import { MENU } from "@/constants/Menu";
-
-type MenuItem = Required<MenuProps>["items"][number];
-
-const items: MenuItem[] = [
-  {
-    label: "Sơn Epoxy, Sơn Sàn",
-    key: "1",
-  },
-  {
-    label: "Sơn Sàn PU",
-    key: "2",
-  },
-  {
-    label: "Chống Thấm",
-    key: "3",
-  },
-  {
-    label: "Phủ FRP, Phủ Compositer",
-    key: "4",
-  },
-  {
-    label: "Đánh Bóng Bê Tông",
-    key: "5",
-  },
-  {
-    label: "Sơn Thể Thao",
-    key: "6",
-  },
-];
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const MenuAntd: React.FC = () => {
   const [current, setCurrent] = useState("mail");
   const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const router = useRouter()
 
   const onClick: MenuProps["onClick"] = (e) => {
     console.log("click ", e);
+    router.push(e?.key)
     setCurrent(e.key);
   };
 
@@ -57,7 +32,9 @@ const MenuAntd: React.FC = () => {
     >
       <div className="bg-white sticky top-0 z-10 border border-gray-300 p-4 ">
         <div className="max-w-[1200px] mx-auto flex gap-10">
-          <img src="/assets/img/logo/logo.png" className="h-[46px]" />
+          <Link href={"/"}>
+            <img src="/assets/img/logo/logo.png" className="h-[46px]" />
+          </Link>
           <div className="flex-1 justify-center hidden lg:flex">
             <Menu
               className="bg-transparent w-full font-bold"

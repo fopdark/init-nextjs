@@ -1,6 +1,15 @@
+import { getServices } from "@/services/service";
 import React from "react";
 
-function Service(props: any) {
+export async function generateStaticParams() {
+  const services = await getServices();
+  return services.map((service: any) => ({
+    slug: service.slug,
+  }));
+  // return [{ productID: "1" }];
+}
+
+async function Service(props: any) {
   return (
     <div className="bg-grey">
       <div className="relative w-full h-[320px]" id="home">
@@ -82,7 +91,7 @@ function Service(props: any) {
                 <h3 className="text-xl font-medium text-gray-800 mb-2">
                   Jowar Flour Grinding
                 </h3>
-                <p className="text-gray-700 text-base">
+                <div className="text-gray-700 text-base">
                   Our jowar grinding service is a convenient and affordable way
                   to get fresh, high-quality jowar flour. We use
                   state-of-the-art equipment to grind jowar into a fine powder,
@@ -94,7 +103,7 @@ function Service(props: any) {
                       fiber, making it a healthy choice for your family.
                     </p>
                   </details>
-                </p>
+                </div>
               </div>
             </div>
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -107,7 +116,7 @@ function Service(props: any) {
                 <h3 className="text-xl font-medium text-gray-800 mb-2">
                   Chilli pounding
                 </h3>
-                <p className="text-gray-700 text-base">
+                <div className="text-gray-700 text-base">
                   We specializes in the production of high-quality chili powder.
                   Our chili powder is made from the finest, freshest chilies,
                   and we use traditional pounding methods to ensure that our
@@ -121,7 +130,7 @@ function Service(props: any) {
                       the specific needs of our customers.
                     </p>
                   </details>
-                </p>
+                </div>
               </div>
             </div>
             <div className="bg-white rounded-lg bg-gradient-to-tr from-pink-300 to-blue-300 p-0.5 shadow-lg overflow-hidden min-h-full">
@@ -158,7 +167,7 @@ function Service(props: any) {
                 <h3 className="text-xl font-medium text-gray-800 mb-2">
                   Rice Papad
                 </h3>
-                <p className="text-gray-700 text-base">
+                <div className="text-gray-700 text-base">
                   Our company produces high-quality rice papad that is made with
                   the finest ingredients. We use traditional methods to make our
                   papad, which gives it a unique flavor and texture. Our papad
@@ -173,7 +182,7 @@ function Service(props: any) {
                       bulk or in individual packages.
                     </p>
                   </details>
-                </p>
+                </div>
               </div>
             </div>
           </div>
