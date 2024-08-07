@@ -37,7 +37,7 @@ function ProductDetail(props: { data: any }) {
               <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
                 <img
                   className="w-full h-full object-cover"
-                  src="https://cdn.pixabay.com/photo/2020/05/22/17/53/mockup-5206355_960_720.jpg"
+                  src={data?.images?.[0]?.url}
                   alt="Product Image"
                 />
                 {/* <ProductDetailSlider data={data?.image}/> */}
@@ -65,7 +65,7 @@ function ProductDetail(props: { data: any }) {
                   Color:
                 </span>
                 <div className="flex items-center mt-2 gap-2">
-                  {data?.color.map((color: string, index: number) => (
+                  {data?.colors?.map((color: string, index: number) => (
                     <button
                       key={index}
                       className={`w-6 h-6 rounded-full`}
@@ -133,7 +133,7 @@ function ProductDetail(props: { data: any }) {
             </div>
           </div>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: data?.content }}></div>
+        <div className="px-5 ck-content" dangerouslySetInnerHTML={{ __html: data?.content }}></div>
       </div>
     </div>
   );

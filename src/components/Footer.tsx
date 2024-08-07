@@ -6,10 +6,11 @@ const Footer = () => {
           <div className="col-span-2 sm:col-span-1">
             <img src="/assets/img/logo/logo.png" width={200} />
             <p className="mt-[18px] text-[15px] font-normal text-white/[80%]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
-              fugit non. Incidunt dolorum adipisci, tempore asperiores nemo odio
-              facere officiis enim animi placeat eaque nesciunt alias beatae id,
-              at dicta.
+              Nếu quý khách mua sơn tại DiepKienHuy, chúng tôi sẽ tư vấn cho bạn
+              những thông tin chi tiết về từng loại sơn. Nếu quý khách muốn đặt
+              mua sơn tại DiepKienHuy, xin vui lòng liên hệ trực tiếp với chúng
+              tôi để nhận được sự hỗ trợ, tận tình nhất từ đội ngũ nhân viên của
+              chúng tôi.
             </p>
             <div className="mt-[18px] flex gap-4">
               <a className="hover:scale-110" target="_blank" href="#">
@@ -163,7 +164,10 @@ const Footer = () => {
           </div>
           <div className="col-span-2 sm:col-span-1 mt-6 flex flex-col justify-between text-white sm:flex-row md:mt-0 ">
             <div className="mt-6 flex flex-col gap-4 sm:mt-0">
-              <a href="/policy" className="text-deutziawhite font-inter text-[18px] font-bold capitalize ">
+              <a
+                href="/policy"
+                className="text-deutziawhite font-inter text-[18px] font-bold capitalize "
+              >
                 Chính sách - Quy định
               </a>
               <div className="flex flex-col gap-4">

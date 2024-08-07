@@ -47,11 +47,14 @@ function ProductSlider({ products }: any) {
         {products?.map((product: any) => (
           <div className="" key={product?._id}>
             <Link href={`${DOMAIN_URL}/products/${product?.slug}`}>
-              <ProductCard
-                img={product?.image?.[0]}
-                name={product?.title}
-                isPrice={false}
-              />
+              <ProductCard data={product} />
+            </Link>
+          </div>
+        ))}
+        {products?.map((product: any) => (
+          <div className="" key={product?._id}>
+            <Link href={`${DOMAIN_URL}/products/${product?.slug}`}>
+              <ProductCard data={product} />
             </Link>
           </div>
         ))}

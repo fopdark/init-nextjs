@@ -31,3 +31,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.ck-content .image img{
+  margin: 20px auto;
+}
