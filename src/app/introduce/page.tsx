@@ -3,7 +3,7 @@ import React from "react";
 
 async function Introduce(props: any) {
   const data = await getAbout({});
-  const htmlContent = { __html: data?.[1].content || <p>Empty</p> };
+  const htmlContent = { __html: data?.content || <p>Empty</p> };
   return (
     <>
       {data && (

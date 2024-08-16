@@ -1,4 +1,10 @@
-const Footer = () => {
+import { getContact } from "@/services/contact";
+import { getPolicy } from "@/services/policy";
+
+const Footer = async () => {
+  const contact = await getContact();
+  const policy = await getPolicy();
+  console.log('contact', contact)
   return (
     <div className="bg-[#000080] pt-9">
       <div className="mx-auto w-full max-w-[1166px] px-4 xl:px-0">
@@ -6,11 +12,12 @@ const Footer = () => {
           <div className="col-span-2 sm:col-span-1">
             <img src="/assets/img/logo/logo.png" width={200} />
             <p className="mt-[18px] text-[15px] font-normal text-white/[80%]">
-              Nếu quý khách mua sơn tại DiepKienHuy, chúng tôi sẽ tư vấn cho bạn
-              những thông tin chi tiết về từng loại sơn. Nếu quý khách muốn đặt
-              mua sơn tại DiepKienHuy, xin vui lòng liên hệ trực tiếp với chúng
-              tôi để nhận được sự hỗ trợ, tận tình nhất từ đội ngũ nhân viên của
-              chúng tôi.
+              {contact?.content} Nếu quý khách mua sơn tại DiepKienHuy, chúng
+              tôi sẽ tư vấn cho bạn những thông tin chi tiết về từng loại sơn.
+              Nếu quý khách muốn đặt mua sơn tại DiepKienHuy, xin vui lòng liên
+              hệ trực tiếp với chúng tôi để nhận được sự hỗ trợ, tận tình nhất
+              từ đội ngũ nhân viên của chúng tôi.
+              {JSON.stringify(contact.address_list[0].address)}
             </p>
             <div className="mt-[18px] flex gap-4">
               <a className="hover:scale-110" target="_blank" href="#">
@@ -96,18 +103,17 @@ const Footer = () => {
                 </svg>
               </div>
               <div className="ml-[18px] flex flex-col gap-2">
-                <a
-                  href="tel:+84915441511"
-                  className="font-Inter text-[14px] font-medium text-white"
-                >
-                  0915.441.511 ( Mr.Duy)
-                </a>
-                <a
-                  href="tel:+84912851511"
-                  className="font-Inter text-[14px] font-medium text-white"
-                >
-                  0912. 851.511 (Ms.Thư)
-                </a>
+                <p>{JSON.stringify(contact?.address_link)}</p>
+                {contact?.address_list?.[0]?.phone?.map(
+                  (phone: any, index: number) => (
+                    <a
+                      href={`tel:+84${phone?.number?.substring(1)}`}
+                      className="font-Inter text-[14px] font-medium text-white"
+                    >
+                      {phone?.number} ( {phone?.owner})
+                    </a>
+                  )
+                )}
               </div>
             </div>
             <div className="mt-[23px] flex">
@@ -127,10 +133,10 @@ const Footer = () => {
               </div>
               <div className="ml-[18px] flex items-center">
                 <a
-                  href="mailto:sale@diepkienhuy.com"
+                  href={`mailto:${contact.email}`}
                   className="font-Inter text-[14px] font-medium text-[#fff]"
                 >
-                  sale@diepkienhuy.com
+                  {contact.email}
                 </a>
               </div>
             </div>
@@ -150,12 +156,12 @@ const Footer = () => {
                 </svg>
               </div>
               <div className="ml-[18px]">
-                <a
-                  href="mailto:help@lorem.com"
+                <p
+                  // href="mailto:help@lorem.com"
                   className="font-Inter text-[14px] font-medium text-[#fff]"
                 >
-                  68 Đường số 19, Phường 5, Gò Vấp, Hồ Chí Minh
-                </a>
+                  {contact?.address_list?.[0].address}
+                </p>
                 {/* <p className="font-Inter text-[12px] font-medium text-white">
                   Address
                 </p> */}
@@ -171,18 +177,11 @@ const Footer = () => {
                 Chính sách - Quy định
               </a>
               <div className="flex flex-col gap-4">
-                <a target="_blank" href="#">
-                  - Thông tin chủ doanh nghiệp
-                </a>
-                <a target="_blank" href="#">
-                  - Chính sách vận chuyển
-                </a>
-                <a target="_blank" href="#">
-                  - Chính sách bảo mật thông tin
-                </a>
-                <a target="_blank" href="#">
-                  - Chính sách bảo hành
-                </a>
+                {policy?.map((item: any, index: number) => (
+                  <a target="_blank" href={item.link}>
+                    - {item.title}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -190,7 +189,7 @@ const Footer = () => {
         <hr className="mt-[30px] text-white" />
         <div className="flex items-center justify-center pb-8 pt-[9px] md:py-6">
           <p className="text-[10px] font-normal text-white md:text-[12px]">
-            © Copyright 2024 All Rights Reserved by Diep Kien Huy Co., Ltd
+            © Copyright 2024 All Rights Reserved by fopdark@gmail.com
           </p>
         </div>
       </div>

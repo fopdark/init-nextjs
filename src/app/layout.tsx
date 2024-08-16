@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import GoogleMap from "@/components/map/GoogleMap";
 import { getSliderList } from "@/services/slider";
 import { getContract } from "@/services/profile";
+import { getContact } from "@/services/contact";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,12 +25,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const contract = await getContract();
+  const contact = await getContact();
   return (
     <html lang="en">
       <body className={inter.className} style={{background: 'white' }}>
         <AntdRegistry>
-          <Header contract={contract}/>
+          <Header contact={contact}/>
           {children}
           <Footer />
           <GoogleMap />
