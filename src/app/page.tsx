@@ -12,6 +12,8 @@ import SliderSlick from "@/components/Slider";
 import { getSliderList } from "@/services/slider";
 import { getProducts } from "@/services/product";
 import Request from "@/components/Request";
+import { getServices } from "@/services/service";
+import { getProjects } from "@/services/project";
 
 // export const getServerSideProps: GetServerSideProps = async () => {
 //   let res = {}
@@ -27,7 +29,8 @@ import Request from "@/components/Request";
 export default async function Home({ res }: any) {
   const slides = await getSliderList({});
   const products = await getProducts();
-
+  const services = await getServices();
+  const projects = await getProjects();
   return (
     <>
       <div>
@@ -150,7 +153,27 @@ export default async function Home({ res }: any) {
                 </h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                {services.map((service: any, index: number) => (
+                  <div
+                    key={service?._id}
+                    className="bg-white rounded-lg shadow-md overflow-hidden"
+                  >
+                    <img
+                      src={service?.images?.[0]?.url}
+                      alt="wheat flour grinding"
+                      className="w-full h-64 object-cover"
+                    />
+                    <div className="p-6 text-center">
+                      <h3 className="text-xl font-medium text-gray-800 mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-700 text-base line-clamp-6 ">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+                {/* <div className="bg-white rounded-lg shadow-md overflow-hidden">
                   <img
                     src="https://image3.jdomni.in/banner/13062021/42/5C/B1/45AC18B7F8EE562BC3DDB95D34_1623559815667.png?output-format=webp"
                     alt="wheat flour grinding"
@@ -293,7 +316,7 @@ export default async function Home({ res }: any) {
                       </details>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </section>
@@ -367,7 +390,7 @@ export default async function Home({ res }: any) {
                 Công Trình Đã Thi Công
               </h2>
             </div>
-            <ProjectSlider />
+            <ProjectSlider data={projects} />
           </div>
           <Request />
 
