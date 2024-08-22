@@ -59,7 +59,7 @@ function Header(props: any) {
           </div>
         </div>
       </div>
-      <MenuAntd />
+      <MenuAntd services={props?.services}/>
     </>
   );
 }

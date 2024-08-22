@@ -11,6 +11,7 @@ import GoogleMap from "@/components/map/GoogleMap";
 import { getSliderList } from "@/services/slider";
 import { getContract } from "@/services/profile";
 import { getContact } from "@/services/contact";
+import { getServices } from "@/services/service";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,11 +27,12 @@ export default async function RootLayout({
 }>) {
 
   const contact = await getContact();
+  const services = await getServices();
   return (
     <html lang="en">
       <body className={inter.className} style={{background: 'white' }}>
         <AntdRegistry>
-          <Header contact={contact}/>
+          <Header contact={contact} services={services}/>
           {children}
           <Footer />
           <GoogleMap />

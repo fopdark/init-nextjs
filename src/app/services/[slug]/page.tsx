@@ -1,12 +1,29 @@
+import {
+  getServicesByParentSlug,
+  getServices,
+  getServiceSlug,
+} from "@/services/service";
+import Link from "next/link";
 import React from "react";
 
-function Service(props: any) {
+export async function generateStaticParams() {
+  const service = await getServices();
+  return service.map((item: any) => ({
+    slug: item.slug,
+  }));
+}
+
+async function Service({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+  const childServices = await getServicesByParentSlug({ parent_slug: slug });
+  const service = await getServiceSlug(slug);
+
   return (
     <div className="bg-grey">
       <div className="relative w-full h-[320px]" id="home">
         <div className="absolute inset-0 opacity-70">
           <img
-            src="https://image1.jdomni.in/banner/13062021/0A/52/CC/1AF5FC422867D96E06C4B7BD69_1623557926542.png"
+            src={service?.images?.[0]?.url}
             alt="Background Image"
             className="object-cover object-center w-full h-full"
           />
@@ -14,48 +31,51 @@ function Service(props: any) {
         <div className="absolute inset-9 flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 mb-4 md:mb-0">
             <h1 className="text-grey-700 font-medium text-4xl md:text-5xl leading-tight mb-2">
-              Bappa Flour mill
+              {service.title}
             </h1>
-            <p className="font-regular text-xl mb-8 mt-4">
-              One stop solution for flour grinding services
+            <p className="font-regular text-xl mb-8 mt-4 line-clamp-1">
+              {service.description}
             </p>
             <a
-              href="#contactUs"
+              href="/contact"
               className="px-6 py-3 bg-[#c8a876] text-white font-medium rounded-full hover:bg-[#c09858]  transition duration-200"
             >
-              Contact Us
+              Liên hệ với chúng tôi
             </a>
           </div>
         </div>
       </div>
-
       <section className="py-10" id="services">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-            Our Services
+            Dịch vụ của chúng tôi
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            {childServices?.map((child: any, index: number) => (
+              <Link href={`/services/${slug}/${child?.slug}`}>
+                <div
+                  key={child?._id}
+                  className="bg-white rounded-lg shadow-md overflow-hidden"
+                >
+                  <img
+                    src={child?.images?.[0]?.url}
+                    alt="wheat flour grinding"
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="p-6 text-center">
+                    <h3 className="text-xl font-medium text-gray-800 mb-2">
+                      {child.title}
+                    </h3>
+                    <p className="text-gray-700 text-base line-clamp-6">
+                      {child.description}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+            {/* <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img
-                src="https://image3.jdomni.in/banner/13062021/42/5C/B1/45AC18B7F8EE562BC3DDB95D34_1623559815667.png?output-format=webp"
-                alt="wheat flour grinding"
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-medium text-gray-800 mb-2">
-                  Wheat Flour Grinding
-                </h3>
-                <p className="text-gray-700 text-base">
-                  Our wheat flour grinding service provides fresh, high-quality
-                  flour to businesses and individuals in the area. We use
-                  state-of-the-art equipment to grind wheat into flour, and we
-                  offer a variety of flours to meet the needs of our customers.
-                </p>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1606854428728-5fe3eea23475?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JhbSUyMGZsb3VyfGVufDB8fDB8fHww"
+                src={service?.images?.[0]?.url}
                 alt="Coffee"
                 className="w-full h-64 object-cover"
               />
@@ -174,7 +194,7 @@ function Service(props: any) {
                   </details>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

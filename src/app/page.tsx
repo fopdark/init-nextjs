@@ -14,6 +14,7 @@ import { getProducts } from "@/services/product";
 import Request from "@/components/Request";
 import { getServices } from "@/services/service";
 import { getProjects } from "@/services/project";
+import Link from "next/link";
 
 // export const getServerSideProps: GetServerSideProps = async () => {
 //   let res = {}
@@ -154,24 +155,23 @@ export default async function Home({ res }: any) {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {services.map((service: any, index: number) => (
-                  <div
-                    key={service?._id}
-                    className="bg-white rounded-lg shadow-md overflow-hidden"
-                  >
-                    <img
-                      src={service?.images?.[0]?.url}
-                      alt="wheat flour grinding"
-                      className="w-full h-64 object-cover"
-                    />
-                    <div className="p-6 text-center">
-                      <h3 className="text-xl font-medium text-gray-800 mb-2">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-700 text-base line-clamp-6 ">
-                        {service.description}
-                      </p>
+                  <Link href={service?.link} key={service?._id}>
+                    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                      <img
+                        src={service?.images?.[0]?.url}
+                        alt="wheat flour grinding"
+                        className="w-full h-64 object-cover"
+                      />
+                      <div className="p-6 text-center">
+                        <h3 className="text-xl font-medium text-gray-800 mb-2">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-700 text-base line-clamp-6 ">
+                          {service.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
                 {/* <div className="bg-white rounded-lg shadow-md overflow-hidden">
                   <img

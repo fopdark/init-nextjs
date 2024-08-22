@@ -8,14 +8,20 @@ export function getServices() {
   });
 }
 
-export function getServiceBySlug(slug: string) {
-  return axios.get(`${API_URL}/services/${slug}`).then((res: any) => {
+// export function getServiceBySlug(param: any) {
+//   return axios.get(`${API_URL}/services`, param).then((res: any) => {
+//     return res.data.data;
+//   });
+// }
+
+export function getServicesByParentSlug(param: any) {
+  return axios.get(`${API_URL}/services`, param).then((res: any) => {
     return res.data.data;
   });
 }
 
-export function getServiceSlug() {
-  return axios.get(`${API_URL}/services/slug`).then((res: any) => {
+export function getServiceSlug(slug: string) {
+  return axios.get(`${API_URL}/services/${slug}`).then((res: any) => {
     return res.data.data;
   });
 }

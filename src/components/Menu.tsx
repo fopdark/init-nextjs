@@ -2,22 +2,42 @@
 
 import type { MenuProps } from "antd";
 import { ConfigProvider, Drawer, Menu } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MenuOutlined } from "@ant-design/icons";
 import { MENU } from "@/constants/Menu";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const MenuAntd: React.FC = () => {
-  const [current, setCurrent] = useState("mail");
+const MenuAntd: React.FC<any> = (props) => {
+  const [current, setCurrent] = useState("services/son-epoxy-son-san");
   const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const router = useRouter()
+  const router = useRouter();
+  const [menu, setMenu] = useState<
+    Array<{
+      key: string;
+      label: string;
+      link: string;
+    }>
+  >([]);
 
   const onClick: MenuProps["onClick"] = (e) => {
     console.log("click ", e);
-    router.push(e?.key)
-    setCurrent(e.key);
+    router.push(`/services/${e?.key}`);
+    setCurrent(`${e?.key}`);
   };
+
+  useEffect(() => {
+    const tmpMenu: any = [];
+    if (props?.services?.length <= 0) return;
+    props?.services?.forEach((element: any) => {
+      tmpMenu.push({
+        key: element.slug,
+        label: element.title,
+        link: element.link,
+      });
+    });
+    setMenu(tmpMenu);
+  }, [props?.services]);
 
   return (
     <ConfigProvider
@@ -41,7 +61,7 @@ const MenuAntd: React.FC = () => {
               onClick={onClick}
               selectedKeys={[current]}
               mode="horizontal"
-              items={MENU}
+              items={menu}
               // theme="dark"
             />
           </div>
@@ -67,7 +87,7 @@ const MenuAntd: React.FC = () => {
                 onClick={onClick}
                 selectedKeys={[current]}
                 // mode="horizontal"
-                items={MENU}
+                items={menu}
               />
             </Drawer>
           </div>
