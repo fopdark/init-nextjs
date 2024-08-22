@@ -52,7 +52,7 @@ async function Service({ params }: { params: { slug: string } }) {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {childServices?.map((child: any, index: number) => (
-              <Link href={`/services/${slug}/${child?.slug}`}>
+              <Link key={index} href={`/services/${slug}/${child?.slug}`}>
                 <div
                   key={child?._id}
                   className="bg-white rounded-lg shadow-md overflow-hidden"

@@ -4,7 +4,7 @@ import { getPolicy } from "@/services/policy";
 const Footer = async () => {
   const contact = await getContact();
   const policy = await getPolicy();
-  console.log('contact', contact)
+  console.log("contact", contact);
   return (
     <div className="bg-[#000080] pt-9">
       <div className="mx-auto w-full max-w-[1166px] px-4 xl:px-0">
@@ -107,6 +107,7 @@ const Footer = async () => {
                 {contact?.address_list?.[0]?.phone?.map(
                   (phone: any, index: number) => (
                     <a
+                      key={index}
                       href={`tel:+84${phone?.number?.substring(1)}`}
                       className="font-Inter text-[14px] font-medium text-white"
                     >
@@ -178,7 +179,7 @@ const Footer = async () => {
               </a>
               <div className="flex flex-col gap-4">
                 {policy?.map((item: any, index: number) => (
-                  <a target="_blank" href={item.link}>
+                  <a target="_blank" href={item.link} key={index}>
                     - {item.title}
                   </a>
                 ))}
