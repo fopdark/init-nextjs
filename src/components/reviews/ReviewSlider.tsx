@@ -1,7 +1,8 @@
 'use client';
 
-import { Avatar } from 'antd';
-import React from 'react';
+import { getServicesByParentSlug } from '@/services/service';
+import { Avatar, Button } from 'antd';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 
 const settings = {
@@ -32,8 +33,17 @@ const settings = {
 };
 
 function ReviewSlider() {
+  const handleGetList = async () => {
+    const childServices = await getServicesByParentSlug({ parent_slug: 'son-epoxy-son-san' });
+    console.log('childServices', childServices)
+  }
+
+  useEffect(() => {
+    handleGetList()
+  },[])
   return (
     <div className="py-5">
+      <Button onClick={handleGetList}>click đê</Button>
       <Slider {...settings}>
         {new Array(4).fill('').map((_, index) => (
           <div key={index}>

@@ -15,9 +15,11 @@ export function getServices() {
 // }
 
 export function getServicesByParentSlug(param: any) {
-  return axios.get(`${API_URL}/services`, param).then((res: any) => {
-    return res.data.data;
-  });
+  return axios
+    .get(`${API_URL}/services`, { params: param })
+    .then((res: any) => {
+      return res.data.data;
+    });
 }
 
 export function getServiceSlug(slug: string) {
