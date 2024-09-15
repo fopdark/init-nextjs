@@ -18,7 +18,7 @@ function Contact(props: any) {
               </p> */}
             </div>
           </div>
-          <div className="flex items-stretch justify-center">
+          {/* <div className="flex items-stretch justify-center">
             <div className="grid md:grid-cols-2">
               <div className="h-full pr-6">
                 <p className="mt-3 mb-12 text-lg text-gray-600 dark:text-slate-400">
@@ -178,7 +178,7 @@ function Contact(props: any) {
                 </form>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { getImageURL } from "@/utils/common";
 import React, { useEffect } from "react";
 import Slider from "react-slick";
 
@@ -24,7 +25,7 @@ function SliderSlick(props: any) {
           data.map((slide: any, index: number) => (
             <div key={slide?._id} className="">
               <img
-                src={slide?.image_url}
+                src={getImageURL(slide?.image_url?.path)}
                 className="w-full h-[30vh] lg:h-[50vh]"
               />
             </div>

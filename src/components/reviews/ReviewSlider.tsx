@@ -43,7 +43,7 @@ function ReviewSlider() {
   },[])
   return (
     <div className="py-5">
-      <Button onClick={handleGetList}>click đê</Button>
+      {/* <Button onClick={handleGetList}>click đê</Button> */}
       <Slider {...settings}>
         {new Array(4).fill('').map((_, index) => (
           <div key={index}>

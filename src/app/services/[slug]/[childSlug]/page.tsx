@@ -2,26 +2,26 @@ import {
   getServices,
   getServiceSlug,
 } from "@/services/service";
-import Link from "next/link";
+import { getImageURL } from "@/utils/common";
 import React from "react";
 
 export async function generateStaticParams() {
-  const service = await getServices();
+  const service:any = [];
   return service.map((item: any) => ({
-    slug: item.slug,
+    childSlug: item.childSlug,
   }));
 }
 
-async function Service({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  const service = await getServiceSlug(slug);
+async function Service({ params }: { params: { childSlug: string } }) {
+  const { childSlug } = params;
+  const service = await getServiceSlug(childSlug);
 
   return (
     <div className="bg-grey">
       <div className="relative w-full h-[320px]" id="home">
         <div className="absolute inset-0 opacity-70">
           <img
-            src={service?.images?.[0]?.url}
+            src={getImageURL(service?.images?.[0]?.path)}
             alt="Background Image"
             className="object-cover object-center w-full h-full"
           />

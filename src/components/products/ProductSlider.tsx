@@ -39,18 +39,9 @@ const settings = {
   ],
 };
 function ProductSlider({ products }: any) {
-  console.log("ProductSlider", products);
-
   return (
     <div className="py-0">
       <Slider {...settings}>
-        {products?.map((product: any) => (
-          <div className="" key={product?._id}>
-            <Link href={`${DOMAIN_URL}/products/${product?.slug}`}>
-              <ProductCard data={product} />
-            </Link>
-          </div>
-        ))}
         {products?.map((product: any) => (
           <div className="" key={product?._id}>
             <Link href={`${DOMAIN_URL}/products/${product?.slug}`}>

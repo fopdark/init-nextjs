@@ -1,32 +1,9 @@
 import React from "react";
 import ProductDetailSlider from "./Slider";
+import { getImageURL } from "@/utils/common";
 
 function ProductDetail(props: { data: any }) {
   const { data } = props;
-
-  // const data = {
-  //   _id: "66adb61adba5cf3586979fba",
-  //   seo: {
-  //     title: "seo title",
-  //     alt: "alt",
-  //     keyword: "keyword",
-  //     content: "content",
-  //     _id: "66adb61adba5cf3586979fbb",
-  //   },
-  //   title: "type: String",
-  //   description: "type: String",
-  //   color: [],
-  //   image: [
-  //     "https://imgs.search.brave.com/TmuC-ABekNMwlHmZAAHY7FrzNZMsijp-9O1vtZeuv14/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXNraW5jYXJlLmNv/bS9jZG4vc2hvcC9m/aWxlcy9EQUlMWV9f/MV8zZDI4MWUwYS0w/Zjg3LTRlNDMtOWZl/ZS04N2MyOTY4YTgz/OWIuanBnP3Y9MTcx/MjI0MDA2NiZ3aWR0/aD0xODAw",
-  //     "https://imgs.search.brave.com/fWwTGxT8ulZNkWDgPC4_lynV0zYTqypDQdWVwZXfRaY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXNraW5jYXJlLmNv/bS9jZG4vc2hvcC9m/aWxlcy9VbnRpdGxl/ZF9kZXNpZ25fNzIu/d2VicD92PTE3MTc4/NDk3MjUmd2lkdGg9/MTIwMA",
-  //   ],
-  //   content: "type: String",
-  //   index: 1,
-  //   created_at: "2024-08-03T04:46:18.442Z",
-  //   update_at: "2024-08-03T04:46:18.443Z",
-  //   __v: 0,
-  //   slug: "product-slug",
-  // };
 
   return (
     <div className=" dark:bg-gray-800 ">
@@ -37,10 +14,9 @@ function ProductDetail(props: { data: any }) {
               <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
                 <img
                   className="w-full h-full object-cover"
-                  src={data?.images?.[0]?.url}
+                  src={getImageURL(data?.images?.[0]?.path)}
                   alt="Product Image"
                 />
-                {/* <ProductDetailSlider data={data?.image}/> */}
               </div>
               <div className="flex -mx-2 mb-4">
                 {/* <div className="w-1/2 px-2">

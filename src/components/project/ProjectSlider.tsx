@@ -1,9 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Slider from 'react-slick';
-
-import ProjectNew from './ProjectNew';
+import React from "react";
+import Slider from "react-slick";
+import ProjectNew from "./ProjectNew";
+import { getImageURL } from "@/utils/common";
+import { DOMAIN_URL } from "@/constants/Common";
+import Link from "next/link";
 
 const settings = {
   dots: false,
@@ -20,39 +22,41 @@ const settings = {
       settings: {
         slidesToShow: 4,
         slidesToScroll: 4,
-      }
+      },
     },
     {
       breakpoint: 768,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 3,
-      }
+      },
     },
     {
       breakpoint: 480,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 
 interface Props {
-  data: any
+  data: any;
 }
-function ProjectSlider({data}: Props) {
+function ProjectSlider({ data }: Props) {
   return (
     <div className="py-0">
       <Slider {...settings}>
         {data?.map((project: any, index: number) => (
           <div className="px-[1px]" key={index}>
-            <ProjectNew
-              img={project?.images?.[0]?.url}
-              location={project?.description}
-              name={project?.title}
-            />
+            <Link href={`${DOMAIN_URL}/projects/${project?.slug}`}>
+              <ProjectNew
+                img={getImageURL(project?.images?.[0]?.path)}
+                location={project?.description}
+                name={project?.title}
+              />
+            </Link>
           </div>
         ))}
       </Slider>

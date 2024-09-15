@@ -1,5 +1,6 @@
 "use client";
 
+import { getImageURL } from "@/utils/common";
 import { Card } from "antd";
 import React from "react";
 
@@ -11,7 +12,7 @@ function ProductCard(props: any) {
         cover={
           <img
             alt={props?.data?.seo?.alt}
-            src={props?.data?.images?.[0]?.url}
+            src={getImageURL(props?.data?.images?.[0]?.path)}
             className="border border-[#F0F0F0] aspect-[6/4]"
             onError={({ currentTarget }) => {
               currentTarget.onerror = null; // prevents looping
