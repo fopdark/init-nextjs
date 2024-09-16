@@ -16,27 +16,18 @@ import { getServices } from "@/services/service";
 import { getProjects } from "@/services/project";
 import Link from "next/link";
 import { getImageURL } from "@/utils/common";
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   let res = {}
-//   try {
-//     const res = await getSliderList({});
-
-//   } catch (error) {
-//     console.log("error", error);
-//   }
-//    return { props: { res } };
-// };
+import { getBenefit } from "@/services/benefit";
 
 export default async function Home({ res }: any) {
   const slides = await getSliderList({});
   const products = await getProducts();
   const services = await getServices();
   const projects = await getProjects();
+  const benefit = await getBenefit();
   return (
     <>
       <div>
-        {/* <p className="text-black">{JSON.stringify(services)}</p> */}
+        <p className="text-black">{JSON.stringify(benefit)}</p>
         <SliderSlick data={slides} />
         <div className="max-w-[1200px] mx-auto py-0">
           {/* SERVICE */}
@@ -56,7 +47,7 @@ export default async function Home({ res }: any) {
                         alt="wheat flour grinding"
                         className="w-full h-64 object-cover"
                       />
-                      <div className="p-6 text-center">
+                      <div className="p-6 text-center h-[230px]">
                         <h3 className="text-xl font-medium text-gray-800 mb-2">
                           {service?.title}
                         </h3>
@@ -80,49 +71,24 @@ export default async function Home({ res }: any) {
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-4 ">
               <div>
                 <div className=" shadow-md bg-gradient-to-tr from-[#000080] to-green-300 rounded-lg p-10 h-full">
-                  <p className="text-white">
-                    Nếu quý khách mua sơn tại DiepKienHuy, chúng tôi sẽ tư vấn
-                    cho bạn những thông tin chi tiết về từng loại sơn. Nếu quý
-                    khách muốn đặt mua sơn tại DiepKienHuy, xin vui lòng liên hệ
-                    trực tiếp với chúng tôi để nhận được sự hỗ trợ, tận tình
-                    nhất từ đội ngũ nhân viên của chúng tôi. DiepKienHuy rất
-                    mong nhận được nhiều hơn nữa sự quan tâm và ủng hộ từ khách
-                    hàng để ngày càng phát triển hơn nữa trong tương lai. Chúng
-                    tôi rất hân hạnh đón tiếp quý khách.
-                  </p>
+                  <p className="text-white">{benefit?.content}</p>
                 </div>
               </div>
               <div className="flex flex-col gap-3 px-2">
-                <div className="flex items-center gap-2 ">
-                  <Avatar
-                    src="/assets/img/construction/process.png"
-                    size={60}
-                  />
-                  <p className="font-bold text-xl sm:text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
-                    Quy Trình Chuyên Nghiệp
-                  </p>
-                </div>
-                <div className="flex items-center gap-2 ">
-                  <Avatar
-                    src="/assets/img/construction/teamwork.png"
-                    size={60}
-                  />
-                  <p className="font-bold text-xl sm:text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
-                    Đội Ngũ Kỹ Thuật Giỏi
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Avatar src="/assets/img/construction/award.png" size={60} />
-                  <p className="font-bold text-xl sm:text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
-                    Quy Trình Đạt Chuẩn
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Avatar src="/assets/img/construction/star.png" size={60} />
-                  <p className="font-bold text-xl sm:text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
-                    Hậu Mãi Tốt
-                  </p>
-                </div>
+                {benefit?.advantages?.map((advantage: any) => (
+                  <div
+                    key={advantage?._id}
+                    className="flex items-center gap-2 "
+                  >
+                    <Avatar
+                      src={getImageURL(advantage?.img_source?.path)}
+                      size={60}
+                    />
+                    <p className="font-bold text-xl sm:text-2xl p-4 bg-gradient-to-r from-[#000080] to-green-300 rounded-full w-full text-white">
+                      {advantage?.content}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

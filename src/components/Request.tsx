@@ -21,7 +21,6 @@ function Request(props: any) {
 
   const handleCreateRequest = async () => {
     try {
-      console.log("formData", formData);
       const res = await createRequest(formData);
       setFormData(defaultValue);
     } catch (error) {}
@@ -65,12 +64,6 @@ function Request(props: any) {
             ></textarea>
 
             <div className="flex justify-center">
-              {/* <input
-                className="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-1/2 "
-                // type="submit"
-                value="Gửi ➤"
-                onClick={() => handleCreateRequest()}
-              /> */}
               <Button
                 onClick={() => handleCreateRequest()}
                 type="primary"

@@ -5,8 +5,9 @@ import {
 import { getImageURL } from "@/utils/common";
 import React from "react";
 
-export async function generateStaticParams() {
-  const service:any = [];
+export async function generateStaticParams({ params }: { params: { slug: string } }) {
+  // const service:any = [];
+  const service = await getServiceSlug(slug);
   return service.map((item: any) => ({
     childSlug: item.childSlug,
   }));
