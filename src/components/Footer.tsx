@@ -17,7 +17,7 @@ const Footer = async () => {
               Nếu quý khách muốn đặt mua sơn tại DiepKienHuy, xin vui lòng liên
               hệ trực tiếp với chúng tôi để nhận được sự hỗ trợ, tận tình nhất
               từ đội ngũ nhân viên của chúng tôi.
-              {JSON.stringify(contact.address_list[0].address)}
+              {/* {JSON.stringify(contact.address_list[0].address)} */}
             </p>
             <div className="mt-[18px] flex gap-4">
               <a className="hover:scale-110" target="_blank" href="#">
@@ -134,10 +134,10 @@ const Footer = async () => {
               </div>
               <div className="ml-[18px] flex items-center">
                 <a
-                  href={`mailto:${contact.email}`}
+                  href={`mailto:${contact?.email}`}
                   className="font-Inter text-[14px] font-medium text-[#fff]"
                 >
-                  {contact.email}
+                  {contact?.email}
                 </a>
               </div>
             </div>
