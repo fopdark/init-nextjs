@@ -14,9 +14,12 @@ const onRequest = (
 ): InternalAxiosRequestConfig => {
   // console.info(`[request] [${JSON.stringify(config)}]`);
   const access_token = localStorage.getItem("access_token");
-  console.log('access_token',access_token)
+  // console.log("access_token", access_token);
   if (access_token) {
     config.headers.Authorization = `Bearer ${JSON.parse(access_token)}`;
+    config.headers["Cache-Control"] = "no-cache";
+    config.headers.Pragma = "no-cache";
+    config.headers.Expires = "0";
   }
   return config;
 };
