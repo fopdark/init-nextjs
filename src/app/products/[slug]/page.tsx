@@ -1,6 +1,5 @@
 import ProductDetail from "@/components/products/Detail";
-import { getProductBySlug, getProductSlug, getProducts } from "@/services/product";
-import { getSliderList } from "@/services/slider";
+import { getProductBySlug, getProducts } from "@/services/product";
 import React from "react";
 
 export async function generateStaticParams() {

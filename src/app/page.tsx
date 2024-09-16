@@ -48,7 +48,7 @@ export default async function Home({ res }: any) {
                 </h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {services.map((service: any, index: number) => (
+                {services?.map((service: any, index: number) => (
                   <Link href={service?.link} key={service?._id}>
                     <div className="bg-white rounded-lg shadow-md overflow-hidden">
                       <img
@@ -58,7 +58,7 @@ export default async function Home({ res }: any) {
                       />
                       <div className="p-6 text-center">
                         <h3 className="text-xl font-medium text-gray-800 mb-2">
-                          {service.title}
+                          {service?.title}
                         </h3>
                         <p className="text-gray-700 text-base line-clamp-6 ">
                           {service.description}

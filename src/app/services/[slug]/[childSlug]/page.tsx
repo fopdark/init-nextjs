@@ -29,7 +29,7 @@ async function Service({ params }: { params: { childSlug: string } }) {
         <div className="absolute inset-9 flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 mb-4 md:mb-0">
             <h1 className="text-grey-700 font-medium text-4xl md:text-5xl leading-tight mb-2">
-              {service.title}
+              {service?.title}
             </h1>
             <p className="font-regular text-xl mb-8 mt-4 line-clamp-1">
               {service.description}
