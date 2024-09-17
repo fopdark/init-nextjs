@@ -27,7 +27,6 @@ export default async function Home({ res }: any) {
   return (
     <>
       <div>
-        <p className="text-black">{JSON.stringify(benefit)}</p>
         <SliderSlick data={slides} />
         <div className="max-w-[1200px] mx-auto py-0">
           {/* SERVICE */}

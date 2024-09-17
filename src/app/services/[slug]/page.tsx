@@ -25,7 +25,6 @@ async function Service({ params }: { params: { slug: string } }) {
     <div className="bg-grey">
       <div className="relative w-full h-[320px]" id="home">
         <div className="absolute inset-0 opacity-70">
-          <p className="text-black">{JSON.stringify(slugMapping)}</p>
           <img
             src={getImageURL(service?.images?.[0]?.path)}
             alt="Background Image"
@@ -56,7 +55,10 @@ async function Service({ params }: { params: { slug: string } }) {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {childServices?.map((child: any, index: number) => (
-              <Link key={index} href={`${DOMAIN_URL}/services/${slug}/${child?.slug}`}>
+              <Link
+                key={index}
+                href={`${DOMAIN_URL}/services/${slug}/${child?.slug}`}
+              >
                 <div
                   key={child?._id}
                   className="bg-white rounded-lg shadow-md overflow-hidden"
