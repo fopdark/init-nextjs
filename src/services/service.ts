@@ -32,3 +32,7 @@ export async function getServiceSlug(slug: string) {
   //   return res.data.data;
   // });
 }
+
+export async function getServiceSlugMapping() {
+  return await fetchNoStore(`${API_URL}/services/slug-mapping`)
+}
