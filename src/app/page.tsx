@@ -17,6 +17,7 @@ import { getProjects } from "@/services/project";
 import Link from "next/link";
 import { getImageURL } from "@/utils/common";
 import { getBenefit } from "@/services/benefit";
+import { getFeedback } from "@/services/feedback";
 
 export default async function Home({ res }: any) {
   const slides = await getSliderList({});
@@ -24,6 +25,7 @@ export default async function Home({ res }: any) {
   const services = await getServices();
   const projects = await getProjects();
   const benefit = await getBenefit();
+  const feedback = await getFeedback();
   return (
     <>
       <div>
@@ -110,18 +112,20 @@ export default async function Home({ res }: any) {
           <Request />
 
           {/* <div className="grid grid-cols-2"> */}
-          <div className="px-5 py-10">
-            <div className="flex justify-center">
-              <h2 className="text-3xl sm:text-4xl text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
-                Đánh Giá Khách Hàng
-              </h2>
+          {feedback.length > 0 && (
+            <div className="px-5 py-10">
+              <div className="flex justify-center">
+                <h2 className="text-3xl sm:text-4xl text-bold mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold">
+                  Đánh Giá Khách Hàng
+                </h2>
+              </div>
+              <p className="text-center text-black">
+                Cùng với đội ngũ nhân viên giàu kinh nghiệm và nhiệt huyết luôn
+                nhận được sự ủng hộ thường xuyên
+              </p>
+              <ReviewSlider data={feedback} />
             </div>
-            <p className="text-center text-black">
-              Cùng với đội ngũ nhân viên giàu kinh nghiệm và nhiệt huyết luôn
-              nhận được sự ủng hộ thường xuyên
-            </p>
-            <ReviewSlider />
-          </div>
+          )}
         </div>
       </div>
     </>

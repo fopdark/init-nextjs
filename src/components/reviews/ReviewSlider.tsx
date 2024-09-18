@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
-import { getServicesByParentSlug } from '@/services/service';
-import { Avatar, Button } from 'antd';
-import React, { useEffect } from 'react';
-import Slider from 'react-slick';
+import { getServicesByParentSlug } from "@/services/service";
+import { getImageURL } from "@/utils/common";
+import { Avatar, Button } from "antd";
+import React, { useEffect } from "react";
+import Slider from "react-slick";
 
 const settings = {
   dots: false,
@@ -20,32 +21,34 @@ const settings = {
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
-      }
+      },
     },
     {
       breakpoint: 768,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-      }
-    }
-  ]
+      },
+    },
+  ],
 };
 
-function ReviewSlider() {
+function ReviewSlider({ data }: any) {
   const handleGetList = async () => {
-    const childServices = await getServicesByParentSlug({ parent_slug: 'son-epoxy-son-san' });
-    console.log('childServices', childServices)
-  }
+    const childServices = await getServicesByParentSlug({
+      parent_slug: "son-epoxy-son-san",
+    });
+    console.log("childServices", childServices);
+  };
 
   useEffect(() => {
-    handleGetList()
-  },[])
+    handleGetList();
+  }, []);
   return (
     <div className="py-5">
       {/* <Button onClick={handleGetList}>click đê</Button> */}
       <Slider {...settings}>
-        {new Array(4).fill('').map((_, index) => (
+        {data?.map((feedback: any, index: number) => (
           <div key={index}>
             <div
               className="flex gap-2 mx-2 p-2 border border-[#000080] rounded-2xl bg-blue-700"
@@ -53,21 +56,14 @@ function ReviewSlider() {
             >
               <div>
                 <Avatar
-                  src="https://picsum.photos/200/300"
+                  src={getImageURL(feedback?.image_url?.path)}
                   alt="avatar"
                   className="flex justify-center w-[300px] h-[300px]"
-                  // size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
                 />
               </div>
               <div className=" flex flex-col justify-center text-white">
-                <h3 className="font-bold text-xl mb-2 ">
-                  Chị Duyên {index} - Chủ nhà hàng sông quê
-                </h3>
-                {/* <p className="text-sm">Quản Lý</p> */}
-                <p>
-                  Mua quầy pha chê ở đây đẹp và tiện ích lắm. Các bạn thợ lắp
-                  đặt rất cẩn thật. Hài Lòng và sẽ ủng hộ tiếp tục!
-                </p>
+                <h3 className="font-bold text-xl mb-2 ">{feedback?.title}</h3>
+                <p>{feedback?.description}</p>
               </div>
             </div>
           </div>
