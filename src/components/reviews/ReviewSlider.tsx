@@ -46,7 +46,6 @@ function ReviewSlider({ data }: any) {
   }, []);
   return (
     <div className="py-5">
-      {/* <Button onClick={handleGetList}>click đê</Button> */}
       <Slider {...settings}>
         {data?.map((feedback: any, index: number) => (
           <div key={index}>
@@ -54,16 +53,17 @@ function ReviewSlider({ data }: any) {
               className="flex gap-2 mx-2 p-2 border border-[#000080] rounded-2xl bg-blue-700"
               key={index}
             >
-              <div>
+              <div className="flex items-start">
                 <Avatar
+                size={80}
                   src={getImageURL(feedback?.image_url?.path)}
                   alt="avatar"
                   className="flex justify-center w-[300px] h-[300px]"
                 />
               </div>
-              <div className=" flex flex-col justify-center text-white">
-                <h3 className="font-bold text-xl mb-2 ">{feedback?.title}</h3>
-                <p>{feedback?.description}</p>
+              <div className="flex flex-col justify-start text-white h-[126px]">
+                <h3 className="font-bold text-xl mb-2">{feedback?.title}</h3>
+                <p className="line-clamp-3">{feedback?.description}</p>
               </div>
             </div>
           </div>

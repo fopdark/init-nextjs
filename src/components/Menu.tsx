@@ -55,7 +55,7 @@ const MenuAntd: React.FC<any> = (props) => {
           <Link href={"/"}>
             <img src="/assets/img/logo/logo.png" className="h-[46px]" />
           </Link>
-          <div className="flex-1 justify-center hidden lg:flex max-w-full">
+          <div className="flex-1 justify-center hidden lg:flex max-w-[95%]">
             <Menu
               className="bg-transparent w-full font-bold"
               onClick={onClick}

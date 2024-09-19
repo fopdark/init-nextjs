@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
 function ProjectNew(props: any) {
   const { img, location, name } = props;
@@ -12,8 +12,10 @@ function ProjectNew(props: any) {
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
-      <h3 className="z-10 mt-3 text-3xl font-bold text-white">{name}</h3>
-      <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+      <h3 className="z-10 mt-3 text-3xl font-bold text-white truncate w-full">
+        {name}
+      </h3>
+      <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300 h-[50px] w-full text-ellipsis line-clamp-2">
         {location}
       </div>
     </article>

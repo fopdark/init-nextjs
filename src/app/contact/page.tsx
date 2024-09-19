@@ -100,7 +100,7 @@ async function Contact(props: any) {
                       </div>
                     </div>
                   </li>
-                  <li className="flex">
+                  {/* <li className="flex">
                     <div className="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +129,7 @@ async function Contact(props: any) {
                         Saturday &amp; Sunday: 08:00 - 12:00
                       </p>
                     </div>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
               <RequestContact />
