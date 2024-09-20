@@ -49,7 +49,7 @@ async function Service({ params }: { params: { slug: string } }) {
         </div>
       </div>
       <section className="py-10" id="services">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-[1200px]">
           <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
             Dịch vụ của chúng tôi
           </h2>
@@ -81,6 +81,18 @@ async function Service({ params }: { params: { slug: string } }) {
             ))}
           </div>
         </div>
+      </section>
+      <section>
+      <div className=" dark:bg-gray-800 ">
+      <div className="bg-gray-100 dark:bg-gray-800 py-8 max-w-[1200px] mx-auto py-0">
+        {service && (
+          <div
+            className="p-5 ck-content text-black"
+            dangerouslySetInnerHTML={{ __html: service?.content || <p>Empty</p> }}
+          ></div>
+        )}
+      </div>
+    </div>
       </section>
     </div>
   );
