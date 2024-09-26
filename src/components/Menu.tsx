@@ -21,8 +21,7 @@ const MenuAntd: React.FC<any> = (props) => {
   >([]);
 
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
-    router.push(`/services/${e?.key}`);
+    router.push(`/dich-vu/${e?.key}`);
     setCurrent(`${e?.key}`);
   };
 

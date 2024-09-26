@@ -1,6 +1,5 @@
 import React from "react";
-import ProductDetailSlider from "./Slider";
-import { getImageURL } from "@/utils/common";
+import ProducImage from "../ProducImage";
 
 function ProductDetail(props: { data: any }) {
   const { data } = props;
@@ -11,25 +10,8 @@ function ProductDetail(props: { data: any }) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row -mx-4">
             <div className="md:flex-1 px-4">
-              <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                <img
-                  className="w-full h-full object-cover"
-                  src={getImageURL(data?.images?.[0]?.path)}
-                  alt="Product Image"
-                />
-              </div>
-              <div className="flex -mx-2 mb-4">
-                {/* <div className="w-1/2 px-2">
-                <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
-                  Add to Cart
-                </button>
-              </div>
-              <div className="w-1/2 px-2">
-                <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
-                  Add to Wishlist
-                </button>
-              </div> */}
-              </div>
+              <ProducImage images={data?.images} />
+              <div className="flex -mx-2 mb-4"></div>
             </div>
             <div className="md:flex-1 px-4">
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
@@ -109,7 +91,10 @@ function ProductDetail(props: { data: any }) {
             </div>
           </div>
         </div>
-        <div className="px-5 ck-content" dangerouslySetInnerHTML={{ __html: data?.content }}></div>
+        <div
+          className="px-5 ck-content"
+          dangerouslySetInnerHTML={{ __html: data?.content }}
+        ></div>
       </div>
     </div>
   );

@@ -1,6 +1,20 @@
 import RequestContact from "@/components/RequestContact";
 import { getContact } from "@/services/contact";
+import { Metadata } from "next";
 import React from "react";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const { slug } = params;
+
+  const res = await getContact();
+  return {
+    title: res?.seo?.alt,
+  };
+}
 
 async function Contact(props: any) {
   const contact = await getContact();

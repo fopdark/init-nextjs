@@ -6,6 +6,7 @@ import {
   getServiceSlugMapping,
 } from "@/services/service";
 import { getImageURL } from "@/utils/common";
+import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 
@@ -14,6 +15,19 @@ export async function generateStaticParams() {
   return slugMapping.map((item: any) => ({
     slug: item.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const { slug } = params;
+
+  const res = await getServiceSlug(slug);
+  return {
+    title: res?.seo?.alt,
+  };
 }
 
 async function Service({ params }: { params: { slug: string } }) {
@@ -57,7 +71,7 @@ async function Service({ params }: { params: { slug: string } }) {
             {childServices?.map((child: any, index: number) => (
               <Link
                 key={index}
-                href={`${DOMAIN_URL}/services/${slug}/${child?.slug}`}
+                href={`${DOMAIN_URL}/dich-vu/${slug}/${child?.slug}`}
               >
                 <div
                   key={child?._id}
@@ -83,16 +97,16 @@ async function Service({ params }: { params: { slug: string } }) {
         </div>
       </section>
       <section>
-      <div className=" dark:bg-gray-800 ">
-      <div className="bg-gray-100 dark:bg-gray-800 py-8 max-w-[1200px] mx-auto py-0">
-        {service && (
-          <div
-            className="p-5 ck-content text-black"
-            dangerouslySetInnerHTML={{ __html: service?.content || <p>Empty</p> }}
-          ></div>
-        )}
-      </div>
-    </div>
+        <div className="bg-gray-100 py-8 max-w-[1200px] mx-auto py-0">
+          {service && (
+            <div
+              className="p-5 ck-content text-black"
+              dangerouslySetInnerHTML={{
+                __html: service?.content || <p>Empty</p>,
+              }}
+            ></div>
+          )}
+        </div>
       </section>
     </div>
   );

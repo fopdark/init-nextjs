@@ -16,19 +16,19 @@ function Header(props: any) {
               Trang chủ
             </Link>
             <Link
-              href="/introduce"
+              href="/gioi-thieu"
               className="border-r border-gray-500 last:border-r-0 pr-2 !text-white"
             >
               Giới thiệu
             </Link>
             <Link
-              href="/"
+              href="/tu-van"
               className="border-r border-gray-500 last:border-r-0 pr-2 !text-white"
             >
               Tư vấn
             </Link>
             <Link
-              href="/contact"
+              href="/lien-he"
               className="border-r border-gray-500 last:border-r-0 pr-2 !text-white"
             >
               Liên hệ

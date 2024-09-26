@@ -4,6 +4,7 @@ import {
   getServiceSlug,
 } from "@/services/service";
 import { getImageURL } from "@/utils/common";
+import { Metadata } from "next";
 import React from "react";
 
 export async function generateStaticParams() {
@@ -12,6 +13,19 @@ export async function generateStaticParams() {
     slug: item.slug,
     slugChild: item.slugChild,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string; slugChild: string };
+}): Promise<Metadata> {
+  const { slugChild } = params;
+
+  const res = await getServiceSlug(slugChild);
+  return {
+    title: res?.seo?.alt,
+  };
 }
 
 async function Service({
@@ -49,11 +63,17 @@ async function Service({
           </div>
         </div>
       </div>
-      <section className="py-10" id="services">
-        <div
-          className="p-5 ck-content text-black"
-          dangerouslySetInnerHTML={{ __html: service?.content || <p>Empty</p> }}
-        ></div>
+      <section className="py-0" id="services">
+        <div className=" ">
+          <div className="bg-gray-100 py-8 max-w-[1200px] mx-auto py-0">
+            <div
+              className="p-5 ck-content text-black"
+              dangerouslySetInnerHTML={{
+                __html: service?.content || <p>Empty</p>,
+              }}
+            ></div>
+          </div>
+        </div>
       </section>
     </div>
   );

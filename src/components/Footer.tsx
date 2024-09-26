@@ -172,7 +172,7 @@ const Footer = async () => {
           <div className="col-span-2 sm:col-span-1 mt-6 flex flex-col justify-between text-white sm:flex-row md:mt-0 ">
             <div className="mt-6 flex flex-col gap-4 sm:mt-0">
               <a
-                href="/policy"
+                href="/chinh-sach"
                 className="text-deutziawhite font-inter text-[18px] font-bold capitalize "
               >
                 Chính sách - Quy định

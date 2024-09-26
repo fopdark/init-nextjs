@@ -44,7 +44,7 @@ function ProductSlider({ products }: any) {
       <Slider {...settings}>
         {products?.map((product: any) => (
           <div className="" key={product?._id}>
-            <Link href={`${DOMAIN_URL}/products/${product?.slug}`}>
+            <Link href={`${DOMAIN_URL}/san-pham/${product?.slug}`}>
               <ProductCard data={product} />
             </Link>
           </div>

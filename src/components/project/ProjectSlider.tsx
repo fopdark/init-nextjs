@@ -50,7 +50,7 @@ function ProjectSlider({ data }: Props) {
       <Slider {...settings}>
         {data?.map((project: any, index: number) => (
           <div className="px-[1px]" key={index}>
-            <Link href={`${DOMAIN_URL}/projects/${project?.slug}`}>
+            <Link href={`${DOMAIN_URL}/du-an/${project?.slug}`}>
               <ProjectNew
                 img={getImageURL(project?.images?.[0]?.path)}
                 location={project?.description}
