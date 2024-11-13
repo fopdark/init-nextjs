@@ -35,3 +35,22 @@ body {
 .ck-content .image img{
   margin: 20px auto;
 }
+
+#google_translate_element {
+  height: 23px;
+  span {
+    display: none;
+  }
+}
+
+.goog-logo-link {
+  display:none !important;
+}
+
+.goog-te-gadget {
+  color: transparent !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+  color: black !important;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "antd/es/typography/Link";
 import MenuAntd from "./Menu";
+import GoogleTranslate from "./translate/GoogleTranslate";
 
 function Header(props: any) {
   console.log("props", props);
@@ -56,6 +57,7 @@ function Header(props: any) {
             <Link className="!text-white" href="tel:+84912851511">
               0912. 851.511 (Ms.Thư)
             </Link> */}
+            <GoogleTranslate/>
           </div>
         </div>
       </div>
